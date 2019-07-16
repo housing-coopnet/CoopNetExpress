@@ -1,16 +1,17 @@
 // This is the index for the server side handling
 // SSR Tutorial Additions
 import * as functions from 'firebase-functions';
-import { render } from 'react-dom';
 import React from "react";
 import { renderToString } from "react-dom/server";
 import App from './src/shared/App'
-import getFacts from './src/shared/components/testFacts';
 import routes from './src/shared/routes';
 import express from "express";
 import cors from "cors";
+// const firebase = require('@firebase/app').default;
+// require('@firebase/firestore');
+const admin = require('firebase-admin')
+admin.initializeApp(functions.config().firebase);
 
-const admin = require('firebase-admin');
 const SENDGRID_API_KEY = functions.config().sendgrid.key 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY)
@@ -56,7 +57,7 @@ exports.firestoreEmail = functions.firestore
 
           const userId = event.id;
 
-          const db = admin.firestore()
+          const db = firebase.firestore()
 
           return db.collection('userData').doc(userId)
                .get()

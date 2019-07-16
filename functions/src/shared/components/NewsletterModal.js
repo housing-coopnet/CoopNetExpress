@@ -31,13 +31,14 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _reactAwesomeModal = _interopRequireDefault(require("react-awesome-modal"));
 
-var _firebaseAdmin = _interopRequireDefault(require("firebase-admin"));
-
 var functions = _interopRequireWildcard(require("firebase-functions"));
 
-var firebaseApp = _firebaseAdmin["default"].initializeApp(functions.config().firebase);
+var firebase = _interopRequireWildcard(require("firebase-admin"));
 
-var db = _firebaseAdmin["default"].firestore();
+require("firebase/firestore");
+
+firebase.initializeApp(functions.config().firebase);
+var db = firebase.firestore;
 
 var NewsletterModal =
 /*#__PURE__*/

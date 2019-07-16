@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Button, Container, Form } from 'react-bootstrap'
 import Modal from 'react-awesome-modal'
-import firebase from "firebase-admin"
 import * as functions from 'firebase-functions'
+import * as firebase from 'firebase-admin'
+import 'firebase/firestore'
 
-const firebaseApp = firebase.initializeApp(functions.config().firebase)
-const db = firebase.firestore()
+firebase.initializeApp(functions.config().firebase)
+const db = firebase.firestore
 
 export default class NewsletterModal extends Component {
      constructor(props) {
@@ -39,7 +40,7 @@ export default class NewsletterModal extends Component {
                }
 
           });
-     }
+     } 
 
      handleSubmit(event) {
           const form = event.currentTarget;

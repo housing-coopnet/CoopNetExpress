@@ -15,15 +15,11 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var functions = _interopRequireWildcard(require("firebase-functions"));
 
-var _reactDom = require("react-dom");
-
 var _react = _interopRequireDefault(require("react"));
 
 var _server = require("react-dom/server");
 
 var _App = _interopRequireDefault(require("./src/shared/App"));
-
-var _testFacts = _interopRequireDefault(require("./src/shared/components/testFacts"));
 
 var _routes = _interopRequireDefault(require("./src/shared/routes"));
 
@@ -33,8 +29,11 @@ var _cors = _interopRequireDefault(require("cors"));
 
 // This is the index for the server side handling
 // SSR Tutorial Additions
+// const firebase = require('@firebase/app').default;
+// require('@firebase/firestore');
 var admin = require('firebase-admin');
 
+admin.initializeApp(functions.config().firebase);
 var SENDGRID_API_KEY = functions.config().sendgrid.key;
 
 var sgMail = require('@sendgrid/mail');
@@ -101,7 +100,7 @@ var CoopNet = functions.https.onRequest(app);
 exports.CoopNet = CoopNet;
 exports.firestoreEmail = functions.firestore.document('userData/{userId}').onCreate(function (event) {
   var userId = event.id;
-  var db = admin.firestore();
+  var db = firebase.firestore();
   return db.collection('userData').doc(userId).get().then(function (doc) {
     var user = doc.data();
     console.log("Sending email to " + user.first_name + " at " + user.email);

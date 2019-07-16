@@ -5,6 +5,9 @@ var nodeExternals = require('webpack-node-externals')
 var browserConfig = {
   mode: "development",
   entry: './src/browser/index.js',
+  target: 'node',
+  stats: "errors-warnings",
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
@@ -17,7 +20,7 @@ var browserConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"]
+            presets: ["@babel/preset-react", "@babel/preset-env"],
           }
         }
       }
@@ -34,7 +37,7 @@ var serverConfig = {
   mode: "development",
   entry: 'index.js',
   target: 'node',
-  externals: [nodeExternals()],
+  externals: [nodeExternals(), 'tls', 'net', 'fs'],
   output: {
     path: __dirname,
     filename: 'index.js',
