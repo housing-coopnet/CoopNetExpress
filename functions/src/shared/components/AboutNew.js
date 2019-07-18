@@ -232,7 +232,36 @@ function (_Component) {
             style: {
               textDecoration: "none"
             }
-          }, _react["default"].createElement(_reactBootstrap.Button, null, "Read More")))))));
+          }, _react["default"].createElement(_reactBootstrap.Button, null, "Read More")))))), _react["default"].createElement(_reactBootstrap.Container, {
+            fluid: true,
+            className: "section"
+          }, _react["default"].createElement(_reactBootstrap.Tab.Container, {
+            fluid: true,
+            style: {
+              height: "100%"
+            },
+            className: "section2Row",
+            defaultActiveKey: "1"
+          }, _react["default"].createElement(_reactBootstrap.Row, {
+            style: {
+              height: "100%"
+            }
+          }, _react["default"].createElement(_reactBootstrap.Col, {
+            sm: 3
+          }, _react["default"].createElement(_reactBootstrap.Nav, {
+            variant: "pills",
+            className: "flex-column"
+          }, _react["default"].createElement(_reactBootstrap.Nav.Item, null, _react["default"].createElement(_reactBootstrap.Nav.Link, {
+            eventKey: "1"
+          }, "Question 1")), _react["default"].createElement(_reactBootstrap.Nav.Item, null, _react["default"].createElement(_reactBootstrap.Nav.Link, {
+            eventKey: "2"
+          }, "Question 2")))), _react["default"].createElement(_reactBootstrap.Col, {
+            sm: 9
+          }, _react["default"].createElement(_reactBootstrap.Tab.Content, null, _react["default"].createElement(_reactBootstrap.Tab.Pane, {
+            eventKey: "1"
+          }, _react["default"].createElement("h1", null, "Text number 1")), _react["default"].createElement(_reactBootstrap.Tab.Pane, {
+            eventKey: "2"
+          }, _react["default"].createElement("h1", null, "Text number 2"))))))));
         }
       }));
     }

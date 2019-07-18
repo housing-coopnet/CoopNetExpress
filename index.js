@@ -1,23 +1,23 @@
 // This is the index for the server side handling
 // SSR Tutorial Additions
-import * as functions from 'firebase-functions';
 import React from "react";
 import { renderToString } from "react-dom/server";
 import App from './src/shared/App'
 import routes from './src/shared/routes';
 import express from "express";
 import cors from "cors";
-// const firebase = require('@firebase/app').default;
-// require('@firebase/firestore');
+const fs = require('fs').promises;
+const { StaticRouter, matchPath } = require("react-router-dom")
+
+const functions = require('firebase-functions');
 const admin = require('firebase-admin')
+
 admin.initializeApp(functions.config().firebase);
 
-const SENDGRID_API_KEY = functions.config().sendgrid.key 
+const SENDGRID_API_KEY = "123" 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY)
 
-const fs = require('fs').promises;
-const { StaticRouter, matchPath } = require("react-router-dom")
 
 async function getIndex() {
   const index = await fs.readFile(__dirname + '/index.html', 'utf8');

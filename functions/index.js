@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -12,8 +10,6 @@ exports.CoopNet = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var functions = _interopRequireWildcard(require("firebase-functions"));
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -29,22 +25,22 @@ var _cors = _interopRequireDefault(require("cors"));
 
 // This is the index for the server side handling
 // SSR Tutorial Additions
-// const firebase = require('@firebase/app').default;
-// require('@firebase/firestore');
-var admin = require('firebase-admin');
-
-admin.initializeApp(functions.config().firebase);
-var SENDGRID_API_KEY = functions.config().sendgrid.key;
-
-var sgMail = require('@sendgrid/mail');
-
-sgMail.setApiKey(SENDGRID_API_KEY);
-
 var fs = require('fs').promises;
 
 var _require = require("react-router-dom"),
     StaticRouter = _require.StaticRouter,
     matchPath = _require.matchPath;
+
+var functions = require('firebase-functions');
+
+var admin = require('firebase-admin');
+
+admin.initializeApp(functions.config().firebase);
+var SENDGRID_API_KEY = "123";
+
+var sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(SENDGRID_API_KEY);
 
 function getIndex() {
   return _getIndex.apply(this, arguments);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Col, Row, Image, Button } from 'react-bootstrap';
+import { Container, Col, Row, Image, Button, Tab, Nav } from 'react-bootstrap';
 import NavHeader from "../components/NavHeader.js"
 import ReactFullpage from '@fullpage/react-fullpage';
 var teamJson = require("../components/placeholders/team.json");
@@ -117,6 +117,34 @@ class About extends Component {
                                                        </Col>
                                                   </Row>
                                              </Container>
+                                        </Container>
+
+                                        {/* FAQ */}
+                                        <Container fluid className="section">
+                                             <Tab.Container fluid style={{ height: "100%" }} className="section2Row" defaultActiveKey="1">
+                                                  <Row style={{ height: "100%" }}>
+                                                       <Col sm={3}>
+                                                            <Nav variant="pills" className="flex-column">
+                                                                 <Nav.Item>
+                                                                      <Nav.Link eventKey="1">Question 1</Nav.Link>
+                                                                 </Nav.Item>
+                                                                 <Nav.Item>
+                                                                      <Nav.Link eventKey="2">Question 2</Nav.Link>
+                                                                 </Nav.Item>
+                                                            </Nav>
+                                                       </Col>
+                                                       <Col sm={9}>
+                                                            <Tab.Content>
+                                                                 <Tab.Pane eventKey="1">
+                                                                      <h1>Text number 1</h1>
+                                                                 </Tab.Pane>
+                                                                 <Tab.Pane eventKey="2">
+                                                                      <h1>Text number 2</h1>
+                                                                 </Tab.Pane>
+                                                            </Tab.Content>
+                                                       </Col>
+                                                  </Row>
+                                             </Tab.Container>
                                         </Container>
 
                                    </ReactFullpage.Wrapper>

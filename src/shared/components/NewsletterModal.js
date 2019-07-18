@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Container, Form } from 'react-bootstrap'
 import Modal from 'react-awesome-modal'
-import * as functions from 'firebase-functions'
-import * as firebase from 'firebase-admin'
 import 'firebase/firestore'
+import * as functions from 'firebase-functions';
+import * as firebase from "firebase/app";
 
 firebase.initializeApp(functions.config().firebase)
 const db = firebase.firestore

@@ -31,11 +31,11 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _reactAwesomeModal = _interopRequireDefault(require("react-awesome-modal"));
 
+require("firebase/firestore");
+
 var functions = _interopRequireWildcard(require("firebase-functions"));
 
-var firebase = _interopRequireWildcard(require("firebase-admin"));
-
-require("firebase/firestore");
+var firebase = _interopRequireWildcard(require("firebase/app"));
 
 firebase.initializeApp(functions.config().firebase);
 var db = firebase.firestore;
