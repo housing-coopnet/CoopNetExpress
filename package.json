@@ -30,7 +30,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "nodemon": "^1.19.1",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
